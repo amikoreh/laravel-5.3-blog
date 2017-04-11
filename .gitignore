@@ -46,6 +46,10 @@ fabric.properties
 /vendor
 /node_modules
 
+# Logs and databases #
+######################
+*.log
+*.sql
 database/database.sqlite
 public/files/.quarantine/
 public/files/.tmb/*
