@@ -4,7 +4,7 @@
 
   @include('back.partials.entete', ['title' => trans('back/notifications.notifications'), 'icon' => 'bell', 'fil' => trans('back/notifications.new-notifications')])
 
-  <div class="row col-lg-12">
+  <div class="row col-xs-12">
     <div class="table-responsive">
       <table class="table">
         <thead>
@@ -20,7 +20,7 @@
                 <tr>
                   <td>{!! link_to('blog/' . $notification->data['slug'], $notification->data['title']) !!}</td>
                   <td>{{ formatDate($notification->created_at) }}</td> 
-                  <td>{!! Form::checkbox(trans('valid'), null, $user->valid, ['disabled' => true]) !!}</td>
+                  <td>{!! Form::checkbox(trans('valid'), null, userValid($notification->data['user_id']), ['disabled' => true]) !!}</td>
                   <td>
                     {!! Form::open(['method' => 'PUT', 'url' => 'notifications/' . $notification->id]) !!}
                       {!! Form::submit(trans('back/notifications.erase'), ['class' => 'btn btn-success btn-block']) !!}
@@ -34,4 +34,3 @@
   </div>
 
 @endsection
-
